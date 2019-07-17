@@ -1,5 +1,4 @@
 package com.redhat.fuse.boosters.rest.http;
-
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.model.rest.RestBindingMode;
@@ -57,11 +56,11 @@ public class CamelRouter extends RouteBuilder {
 
             //
             // COMMENT OUT THIS
-            .to("direct:arrivalsImplLocal", "direct:departuresImplLocal");
+            //.to("direct:arrivalsImplLocal", "direct:departuresImplLocal");
 
             //
             // UNCOMMENT THIS
-            //.to("direct:arrivalsImplRemote", "direct:departuresImplRemote");
+            .to("direct:arrivalsImplRemote", "direct:departuresImplRemote");
     
         from("direct:arrivalsImplRemote").description("Arrivals REST service implementation route")
             .streamCaching()
